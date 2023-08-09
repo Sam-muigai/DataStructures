@@ -6,9 +6,9 @@ class LinkedList<T : Any> {
 
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
-   var size = 0
+    private var size = 0
 
-    fun isEmpty() = size == 0
+    private fun isEmpty() = size == 0
 
     override fun toString(): String {
         return if (isEmpty()) {
@@ -75,7 +75,7 @@ class LinkedList<T : Any> {
         return result
     }
 
-    fun removeLast():T?{
+    fun removeLast(): T? {
         val head = head ?: return null
 
         if (head.next == null) return pop()
@@ -88,7 +88,7 @@ class LinkedList<T : Any> {
         /*
         * Loop will terminate after current is at tail position
         * */
-        while (next != null){
+        while (next != null) {
             prev = current
             current = next
             next = current.next
@@ -99,14 +99,14 @@ class LinkedList<T : Any> {
         return current.value
     }
 
-    fun removeAfter(node:Node<T>):T?{
+    fun removeAfter(node: Node<T>): T? {
         val result = node.next?.value
 
-        if (node.next == tail){
+        if (node.next == tail) {
             tail = node
         }
 
-        if (node.next != null){
+        if (node.next != null) {
             size--
         }
         node.next = node.next?.next
@@ -117,7 +117,7 @@ class LinkedList<T : Any> {
 
 fun main() {
 
-    "remove after a particular node" example{
+    "remove after a particular node" example {
         val lists = LinkedList<Int>()
         lists.append(1)
         lists.append(2)
@@ -128,7 +128,7 @@ fun main() {
         println("After removing node:$lists")
     }
 
-    "removeLast" example{
+    "removeLast" example {
         val lists = LinkedList<Int>()
         lists.append(1)
         lists.append(2)
