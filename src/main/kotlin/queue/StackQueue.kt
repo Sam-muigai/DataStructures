@@ -48,6 +48,7 @@ class StackQueue<T:Any>:Queue<T>{
 }
 
 fun main() {
+
     "Queues using stack queue" example{
         val queue = StackQueue<String>().apply {
             enqueue("Sam")
@@ -61,4 +62,5 @@ fun main() {
         queue.dequeue()
         println(queue)
     }
+
 }
